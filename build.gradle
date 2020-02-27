@@ -2,6 +2,7 @@ apply plugin: "java"
 apply plugin: "maven"
 apply plugin: "com.github.johnrengelman.shadow"
 
+
 compileJava.options.encoding = "UTF-8"
 
 // Currently we target Java 1.8
@@ -18,14 +19,15 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
+		classpath "com.github.jengelman.gradle.plugins:shadow:5.2.0"
 	}
 }
+
 
 repositories {
 	mavenCentral()
 	maven { url "http://nexus.hc.to/content/repositories/pub_releases" }
-	maven { url "http://repo.ess3.net/content/groups/essentials" }
+	maven { url "https://ci.ender.zone/plugin/repository/everything/" }
 	maven { url "https://hub.spigotmc.org/nexus/content/groups/public/" }
 	maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 	maven { url "https://maven.sk89q.com/repo/" }
@@ -39,14 +41,14 @@ dependencies {
 	compile     group: "info.picocli", name: "picocli", version: "0.9.8"
 	compileOnly group: "com.github.ben-manes.caffeine", name: "caffeine", version: "2.5.5"
 	
-	compileOnly group: "org.spigotmc", name: "spigot-api", version: "1.12.1-R0.1-SNAPSHOT";	
+	compileOnly group: "org.spigotmc", name: "spigot-api", version: "1.12.2-R0.1-SNAPSHOT";
 	
 	compileOnly group: "net.milkbowl.vault", name: "VaultAPI", version: "1.6";
 	compileOnly group: "com.sk89q", name: "worldguard", version: "6.1.1-SNAPSHOT";
 
 	compileOnly group: "com.sk89q.worldedit", name: "worldedit-bukkit", version: "6.1.1-SNAPSHOT";
-	compileOnly group: "net.ess3", name: "Essentials", version: "2.13-SNAPSHOT";
-	compileOnly group: "net.ess3", name: "EssentialsChat", version: "2.13-SNAPSHOT";
+	compileOnly group: "net.ess3", name: "EssentialsX", version: "2.16.1";
+	compileOnly group: "net.ess3", name: "EssentialsXChat", version: "2.16.1";
 
 	compileOnly group: "be.maximvdw", name: "MVdWPlaceholderAPI", version: "1.0.2-SNAPSHOT";
 	compileOnly group: "me.clip", name: "placeholderapi", version: "2.8.2";

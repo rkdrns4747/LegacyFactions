@@ -64,6 +64,7 @@ import net.redstoneore.legacyfactions.util.cross.CrossEntityType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -107,7 +108,7 @@ public class Factions extends FactionsPluginBase {
 	private Integer saveTask = null;
 	
 	/**
-	 * Stop. Use {@link getGson}. This will be set to private in the future
+	 * Stop. This will be set to private in the future
 	 */
 	@Deprecated
     public final Gson gson = this.getGsonBuilder().create();
@@ -262,7 +263,10 @@ public class Factions extends FactionsPluginBase {
 		// since some other plugins execute commands directly through this command interface, provide it
 		CommandAliases.baseCommandAliases.forEach(ref ->  {
 			if (ref != null) {
-				this.getCommand(ref).setExecutor(this);
+				PluginCommand pC = this.getCommand(ref);
+				if(pC != null){
+					pC.setExecutor(this);
+				}
 			}
 		});
 				
